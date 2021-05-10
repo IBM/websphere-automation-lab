@@ -50,7 +50,7 @@ IBM WebSphere Automation Think 2021 Lab instructions
 * [Step 9: Update tWAS server version 9.0.5.7 to fix the vulnerability](#step-9--update-twas-server-version-9-0-5-7-to-fix-the-vulnerability) 
 * [Step 10: Update tWAS server version 9.0.5.7 to introduce the vulnerability back (optional)](#step-10-update-twas-server-version-9-0-5-7-to-introduce-the-vulnerability-back-optional)
 
-### Step 1 – Log in into WebSphere Automation GUI and configure your email to receive vulnerability notifications
+### Step 1 – Log in to WebSphere Automation GUI and configure your email to receive vulnerability notifications
 ----------------------------------------------------------------------------------------------------------------
 
 #### Access the GUI
