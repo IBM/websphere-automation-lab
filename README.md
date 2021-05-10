@@ -45,7 +45,7 @@ IBM WebSphere Automation Think 2021 Lab instructions
 * [Step 4: Configure Liberty Server version 20.0.0.12 to register to WebSphere Automation](#step-4--configure-liberty-server-version-20-0-0-12-to-register-to-websphere-automation)
 * [Step 5: Configure Liberty Server version 20.0.0.9 to register to WebSphere Automation](#step-5--register-liberty-server-version-20-0-0-9-to-websphere-automation)
 * [Step 6: Configure traditional WebSphere(tWAS) version 9.0.5.6 to WebSphere Automation](#step-6---configure-traditional-webspheretwas-version-9-0-5-6-to-websphere-automation)
-* [Step 7: Configure traditional WebSphere(tWAS) version `9.0.5.7` to WebSphere Automation](#step-7--configure-traditional-webspheretwas-version-9-0-5-7-to-websphere-automation)
+* [Step 7: Configure traditional WebSphere(tWAS) version 9.0.5.7 to WebSphere Automation](#step-7--configure-traditional-webspheretwas-version-9-0-5-7-to-websphere-automation)
 * [Step 8: Update Liberty server version 20.0.0.9 to fix the vulnerability](#step-8--update-liberty-server-version-20-0-0-9-to-fix-the-vulnerability) 
 * [Step 9: Update tWAS server version 9.0.5.7 to fix the vulnerability](#step-9--update-twas-server-version-9-0-5-7-to-fix-the-vulnerability) 
 * [Step 10: Update tWAS server version 9.0.5.7 to introduce the vulnerability back (optional)](#step-10-update-twas-server-version-9-0-5-7-to-introduce-the-vulnerability-back-optional)
@@ -150,7 +150,7 @@ cp /home/ibmuser/Desktop/lab_backup/liberty200012/server_tls.xml /opt/IBM/WebSph
 keytool -import -trustcacerts -file /opt/IBM/WebSphere/cacert.pem -keystore /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/resources/security/key.p12 -storetype PKCS12 -storepass th1nkpassword -noprompt
 ```
 
-* Edit the server.xml file (using vi, vim, or gedit) to configure the usageMetering feature:
+* Edit the server.xml file (using vi, vim, or gedit) to add the usageMetering feature to the existing features:
 ```
 vi /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/server.xml
 ```
@@ -189,7 +189,7 @@ cat /opt/IBM/WebSphere/api-key.txt
 /opt/IBM/WebSphere/Liberty20009/bin/server create Liberty_20009_server
 ```
 
-* Since you have already configured usageMetering feature for Liberty version 20.0.0.12, we have a provided couple of server.xml files to make the configuration simpler. First copy the tls configuration.
+* Since you have already configured usageMetering feature for Liberty version 20.0.0.12, we have a provided couple of server.xml files to make the configuration simpler. First copy the tls configuration.Press Yes (Y) to overwrite the existing file:
 
 ```
 cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_tls.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
@@ -209,7 +209,7 @@ keytool -import -trustcacerts -file /opt/IBM/WebSphere/cacert.pem -keystore /opt
 
 ```
 
-* Copy the server.xml that contains the usageMetering feature and properties (url, api-key)
+* Copy the server.xml that contains the usageMetering feature and properties (url, api-key).Press Yes (Y) to overwrite the existing file:
 
 ```
 cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
