@@ -141,7 +141,7 @@ oc get secret external-tls-secret -n websphere-automation -o jsonpath='{.data.ce
 ```
 /opt/IBM/WebSphere/Liberty200012/bin/server create Liberty_200012_server
 ```
-* Configure the server to use TLS/SSL using the provided server_tls.xml file.Press Yes (Y) to overwrite the existing file:
+* Configure the server to use TLS/SSL using the provided server_tls.xml file. Enter `y` to overwrite the existing file:
 ```
 cp /home/ibmuser/Desktop/lab_backup/liberty200012/server_tls.xml /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/server.xml
 
@@ -195,7 +195,7 @@ cat /opt/IBM/WebSphere/api-key.txt
 /opt/IBM/WebSphere/Liberty20009/bin/server create Liberty_20009_server
 ```
 
-* Since you have already configured usageMetering feature for Liberty version 20.0.0.12, we have a provided couple of server.xml files to make the configuration simpler. First copy the tls configuration.Press Yes (Y) to overwrite the existing file:
+* Since you have already configured usageMetering feature for Liberty version 20.0.0.12, we have a provided couple of server.xml files to make the configuration simpler. First copy the tls configuration. Enter `y` to overwrite the existing file:
 
 ```
 cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_tls.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
@@ -215,7 +215,7 @@ keytool -import -trustcacerts -file /opt/IBM/WebSphere/cacert.pem -keystore /opt
 
 ```
 
-* Copy the server.xml that contains the usageMetering feature and properties (url, api-key).Press Yes (Y) to overwrite the existing file:
+* Copy the server.xml that contains the usageMetering feature and properties (url, api-key). Enter `y` to overwrite the existing file:
 
 ```
 cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
