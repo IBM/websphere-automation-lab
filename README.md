@@ -156,17 +156,15 @@ cp /home/ibmuser/Desktop/lab_backup/liberty200012/server_tls.xml /opt/IBM/WebSph
 keytool -import -trustcacerts -file /opt/IBM/WebSphere/cacert.pem -keystore /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/resources/security/key.p12 -storetype PKCS12 -storepass th1nkpassword -noprompt
 ```
 
-* Edit the server.xml file (using vi, vim, or gedit) to add the usageMetering feature to the existing features:
+* Edit the server.xml file (using vi, vim, or gedit) to add the `usageMetering-1.0` feature to the existing features in the `<featureManager>` element:
 ```
 vi /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/server.xml
 ```
 ```
-<featureManager>
-	<feature>usageMetering-1.0</feature>
-</featureManager>
+<feature>usageMetering-1.0</feature>
 ```
 
-* Add the usageMetering element and replace the url and the api-key values as shown below and save the file
+* Add the usageMetering element and replace the `<metering-url>` and the `<api-key>` values as shown below:
 ```
 <usageMetering url="<metering-url>" apiKey="<api-key>" sslRef="defaultSSL"/>
 ```
@@ -178,6 +176,8 @@ cat /opt/IBM/WebSphere/metering-url.txt
 ```
 cat /opt/IBM/WebSphere/api-key.txt
 ```
+
+* Save the server.xml file.
 
 * Confirm that the Liberty server is registered to WebSphere Automation:
 
