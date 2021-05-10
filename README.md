@@ -123,12 +123,12 @@ oc project websphere-automation
 ```
 echo https://$(oc get route cpd -n websphere-automation -o jsonpath='{.spec.host}')/websphereauto/meteringapi > /opt/IBM/WebSphere/metering-url.txt
 ```
-* Get the api-key and store it in a file.
+* Get the api-key and save it in a file.
 ```
 oc -n websphere-automation get secret automation-secure-metering-apis-encrypted-tokens -o jsonpath='{.data.automation-secure-metering-apis-sa}' | base64 -d > /opt/IBM/WebSphere/api-key.txt; echo >> /opt/IBM/WebSphere/api-key.txt
 
 ```
-* Get the Server certificate
+* Get the Server certificate and save it in a file.
 ```
 oc get secret external-tls-secret -n websphere-automation -o jsonpath='{.data.cert\.crt}' | base64 -d > /opt/IBM/WebSphere/cacert.pem
 
@@ -181,10 +181,12 @@ cat /opt/IBM/WebSphere/api-key.txt
 
 * Confirm that the Liberty server is registered to WebSphere Automation:
 
-  * `https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/`
+  ```
+  https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
+  ```
   
 * This version of Liberty server is not vulnerable to any known CVEs
-  * No email will be sent
+  * No email will be sent because there are no vulnerabilities
   
 ### Step 5 – Register Liberty Server version 20 0 0 9 to WebSphere Automation
 ---------------------------------------------------------------------------
@@ -223,13 +225,17 @@ cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/
 ```
 
 * Confirm that the Liberty server is registered to WebSphere Automation
-  * `https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/`
+
+```
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
+
+```
 
 * The console shows that this server is vulnerable for CVE-2020-10693
 
 * Check your email. A mail notification (if configured) will be sent indicating the vulnerability:
 
-  * In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. Because of network restrictions in the lab environment, this link would not work.
+  * In the email message, there will be a link that would redirect to the console to show more details on the vulnerability. Because of network restrictions in the lab environment, this link will not work.
     
    * The image below is where the link would have redirected to.
    
@@ -281,7 +287,7 @@ https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 * Confirm that the tWAS server is registered to WebSphere Automation:
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 ```
 
 * You should see that this server is vulnerable to 1 CVE (CVE-2021-26296)
@@ -308,14 +314,17 @@ or
 ```
 gedit /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
 ```
-  * Comment out the feature: 
+  * Comment out the feature:
   ```
   <!-- <feature>beanValidation-2.0</feature> -->
   ```
+
+* Save the server.xml file. 
+   
 * Go to console to make sure that the Liberty 20.0.0.9 server does not show any vulnerabilities. The update is picked up automatically.
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 ```
 
 #### By Applying an IFIX
@@ -324,18 +333,27 @@ https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
 * Instead of removing the beanValidationFeature-2.0, the correct process is to apply the appropriate iFix to get rid of the vulnerability:
 
 ```
-vi (or gedit)
-/opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
+vi /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
 
 ```
-  * Uncomment out the feature :
+
+or
+
+```
+gedit /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
+
+```
+  * Uncomment out the feature:
   ```
   <feature>beanValidation-2.0</feature>
   ```
+
+* Save the server.xml file.
+
 * Make sure the vulnerability shows up again. An email will also be sent out.
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul
 ```
 
 * Stop the server:
@@ -359,7 +377,7 @@ https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul
 * Now, in your console you should notice that the CVE was removed:
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 ```
 
 ### Step 9 – Update tWAS server version 9 0 5 7 to fix the vulnerability
@@ -387,7 +405,7 @@ https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
 * Go back to the console. Notice that there are no more CVEs under tWAS 9.0.5.7.Also, you can see on the right under "Applied iFixes" there are 4 applied fixes.
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 ```
 
 ### Step 10: Update tWAS server version 9 0 5 7 to introduce the vulnerability back (optional)
@@ -415,7 +433,7 @@ https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
 * Go back to the console. Notice that there is now again 1 CVE under the tWAS 9.0.5.7 server:
 
 ```
-https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
+https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 ```
 
 * Check your email. A mail notification (if configured) will be sent showing the vulnerability.
