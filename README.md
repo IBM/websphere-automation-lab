@@ -243,7 +243,7 @@ cp /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/
 * Configure usage-metering:
 
 ```
-/opt/IBM/WebSphere/AppServer9056/bin/wsadmin.sh -f /apiusagemetering/scripts/configuretWasUsageMetering.py url=$(cat /opt/IBM/WebSphere/metering-url.txt) apiKey=$(cat /opt/IBM/WebSphere/apikey.txt) trustStorePassword=th1nkpassword
+/opt/IBM/WebSphere/AppServer9056/bin/wsadmin.sh -f /apiusagemetering/scripts/configuretWasUsageMetering.py url=$(cat /opt/IBM/WebSphere/metering-url.txt) apiKey=$(cat /opt/IBM/WebSphere/api-key.txt) trustStorePassword=th1nkpassword
 
 ```
 
@@ -269,7 +269,7 @@ https://cpd-websphere-automation.apps.ocp.ibm.edu/websphereauto/secvul/
 * Configure usage-metering:
 
 ```
-/opt/IBM/WebSphere/AppServer9057/bin/wsadmin.sh -f /apiusagemetering/scripts/configuretWasUsageMetering.py url=$(cat /opt/IBM/WebSphere/meteringurl.txt) apiKey=$(cat /opt/IBM/WebSphere/api-key.txt) trustStorePassword=th1nkpassword
+/opt/IBM/WebSphere/AppServer9057/bin/wsadmin.sh -f /apiusagemetering/scripts/configuretWasUsageMetering.py url=$(cat /opt/IBM/WebSphere/metering-url.txt) apiKey=$(cat /opt/IBM/WebSphere/api-key.txt) trustStorePassword=th1nkpassword
 ```
 
 * Confirm that the tWAS server is registered to WebSphere Automation:
