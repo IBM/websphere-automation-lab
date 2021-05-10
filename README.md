@@ -397,7 +397,7 @@ https://cpd-websphereautomation.apps.ocp.ibm.edu/websphereauto/secvul/
 
 * Uninstall the iFix:
 ```
-tWAS_9057_server/iFix/PH34711/imcl_ifix_uninstall.sh 9057
+/iFix/PH34711/imcl_ifix_uninstall.sh 9057
 ```
 
 * Start the server:
