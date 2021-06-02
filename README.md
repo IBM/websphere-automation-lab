@@ -143,7 +143,7 @@ oc get secret external-tls-secret -n websphere-automation -o jsonpath='{.data.ce
 ```
 * Configure the server to use TLS/SSL using the provided server_tls.xml file:
 ```
-cp -f /home/ibmuser/Desktop/lab_backup/liberty200012/server_tls.xml /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/server.xml
+\cp -f /home/ibmuser/Desktop/lab_backup/liberty200012/server_tls.xml /opt/IBM/WebSphere/Liberty200012/usr/servers/Liberty_200012_server/server.xml
 
 ```
 
@@ -206,7 +206,7 @@ cat /opt/IBM/WebSphere/api-key.txt
 * Since you have already configured usageMetering feature for Liberty version 20.0.0.12, we have a provided couple of server.xml files to make the configuration simpler. First copy the tls configuration:
 
 ```
-cp -f /home/ibmuser/Desktop/lab_backup/liberty20009/server_tls.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
+\cp -f /home/ibmuser/Desktop/lab_backup/liberty20009/server_tls.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
 
 ```
 
@@ -232,7 +232,7 @@ keytool -import -trustcacerts -file /opt/IBM/WebSphere/cacert.pem -keystore /opt
 * Copy the server.xml that contains the usageMetering feature and properties (url, api-key):
 
 ```
-cp -f /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
+\cp -f /home/ibmuser/Desktop/lab_backup/liberty20009/server_configured.xml /opt/IBM/WebSphere/Liberty20009/usr/servers/Liberty_20009_server/server.xml
 
 ```
 
